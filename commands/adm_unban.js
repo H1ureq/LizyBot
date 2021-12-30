@@ -4,7 +4,13 @@ module.exports.run = async (client, message, args) => {
     let reason = args.slice(1).join(" ")
     let userId = args[0]
     
-   
+    let embed7 = new Discord.MessageEmbed()
+    .setTitle("Błąd")
+    .setColor("RED")
+    .setDescription("Nie masz permisji")
+    .setTimestamp()
+    .setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
+    if (!message.member.hasPermission('MANAGE_MEMBERS')) return message.channel.send(embed7);
     
     
     if(!reason) reason = 'Nie podałeś powodu'
